@@ -1,3 +1,4 @@
+package Day01;
 public class LinkedListbasics {
     public static class Node{
         int data;
