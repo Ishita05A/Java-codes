@@ -1,7 +1,4 @@
 package Day01;
-
-import java.util.Scanner;
-
 public class fuctions {
     public static class Node{
         int data;
@@ -65,6 +62,9 @@ public class fuctions {
 
         }
         void delete(int idx){
+            if(idx==0){
+                head=head.next;
+            }
             Node temp=head;
             for(int i=0;i<idx-1;i++){
                 temp=temp.next;
@@ -92,7 +92,7 @@ public class fuctions {
         }
     }
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        
         linkedlist ll=new linkedlist();
         ll.insertatend(8);
         ll.insertatend(4);
