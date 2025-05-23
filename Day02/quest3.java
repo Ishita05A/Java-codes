@@ -15,18 +15,23 @@ public class quest3 {
             temp=temp.next;
         }
     }
-    static void deleteNthNode(Node head,int n){
+    static Node deleteNthNode(Node head,int n){
+    
         Node slow=head;
         Node fast=head;
         for(int i=1;i<=n;i++){
             fast=fast.next;
         }
-        while(fast!=null){
+        if(fast==null){
+            head=head.next;
+            return head;
+        }
+        while(fast.next!=null){
             fast=fast.next;
             slow=slow.next;
         }
-        slow.data=slow.next.data;
         slow.next=slow.next.next;
+        return head;
     }
     public static void main(String[] args) {
         Node a=new Node(3);
@@ -36,7 +41,7 @@ public class quest3 {
         a.next=b;
         b.next=c;
         c.next=d;
-        deleteNthNode(a, 2);
+        a=deleteNthNode(a, 4);
         display(a);
 
     }
