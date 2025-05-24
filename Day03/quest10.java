@@ -1,6 +1,6 @@
 package Day03;
 
-public class quest9 {
+public class quest10 {
     public static class Node{
         int data;
         Node next;
