@@ -22,13 +22,15 @@ public class quest10 {
         Node head=temp;
         while(temp1!=null && temp2!=null){
             if(temp1.data<temp2.data){
-                temp.next=temp1;
-                temp=temp.next;
+                Node a=new Node(temp1.data);
+                temp.next=a;
+                temp=a;
                 temp1=temp1.next;
             }
             else{
-                temp.next=temp2;
-                temp=temp.next;
+                Node a=new Node(temp2.data);
+                temp.next=a;
+                temp=a;
                 temp2=temp2.next;
             }
         }
