@@ -17,9 +17,8 @@ public class quest13 {
     }
     static Node duplicate(Node head){
         Node temp=head;
-        Node ans=head;
-        while(temp!=null){
-            if(temp==temp.next){
+        while(temp.next!=null){
+            if(temp.data==temp.next.data){
                 temp.next=temp.next.next;
                 temp=temp.next;
             }
@@ -27,7 +26,7 @@ public class quest13 {
                 temp=temp.next;
             }
         }
-        return ans;
+        return head;
     }
     public static void main(String[] args) {
         Node a=new Node(3);
