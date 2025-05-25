@@ -15,32 +15,25 @@ public class quest12 {
         }
     }
     static Node oddevenLL(Node head){
-        Node tempo=head;
-        Node tempe=head;
-        Node temp=new Node(100);
-        Node ans=temp;
-        while(tempe.data%2!=0){
-            tempe=tempe.next;
-        }
-        Node evenans=tempe;
-        Node even=tempe;
-        tempe=temp.next;
-        while(tempo.next!=null){
-            if(tempo.data%2!=0){
-                temp.next=tempo;
-                temp=temp.next;
+        Node temp=head;
+        Node odd=new Node(0);
+        Node even=new Node(0);
+        Node tempo=odd;
+        Node tempe=even;
+        while(temp!=null){
+            if(temp.data%2!=0){
+                tempo.next=temp;
                 tempo=tempo.next;
-
-            }
-            // else if(tempe.data%2==0){
-            //     even.next=tempe;
-            //     tempe=tempe.next;
                 
-            // }
+            }
+            else{
+                tempe.next=temp;
+                tempe=tempe.next;
+            }
+            temp=temp.next;
         }
-        temp.next=evenans;
-        
-        return ans.next;
+        tempo.next=even.next;
+        return odd.next;
     }
     public static void main(String[] args) {
         Node a=new Node(3);
