@@ -14,14 +14,16 @@ public class insertAtRandom {
     }
 
     static Node insertAt(Node head, int idx, int val) {
-        Node t = head;
-        Node temp = new Node(val);
+        Node s = head;
+        Node t = new Node(val);
         for (int i = 1; i <= idx; i++) {
-            t = t.next;
+            s = s.next;
         }
-        temp.next = t.next;
-        t.next = temp;
-        t.next.prev = temp;
+        Node r = s.next;
+        s.next = t;
+        t.next = r;
+        t.prev = s;
+        r.prev = t;
         return head;
     }
 
@@ -32,6 +34,14 @@ public class insertAtRandom {
             temp = temp.next;
         }
         System.out.println();
+    }
+
+    static void displayReverse(Node tail) {
+        Node temp = tail;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.prev;
+        }
     }
 
     public static void main(String[] args) {
@@ -46,8 +56,9 @@ public class insertAtRandom {
         c.prev = b;
         c.next = d;
         d.prev = c;
-        insertAt(a, 2, 5);
+        a = insertAt(a, 2, 5);
         display(a);
+        displayReverse(d);
         sc.close();
     }
 
