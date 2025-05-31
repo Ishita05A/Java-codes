@@ -11,12 +11,12 @@ public class quest17 {
 
     static int[] rotate(int[] arr, int k) {
         int j = 0;
-        k = arr.length % k;
+        k = k % arr.length;
         int[] ans = new int[arr.length];
-        for (int i = k + 2; i < arr.length; i++) {
+        for (int i = arr.length - k; i < arr.length; i++) {
             ans[j++] = arr[i];
         }
-        for (int i = 0; i <= k + 1; i++) {
+        for (int i = 0; i <= k; i++) {
             ans[j++] = arr[i];
         }
         return ans;
