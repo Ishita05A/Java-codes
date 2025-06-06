@@ -7,8 +7,8 @@ public class display {
     static void displayStack(Stack<Integer> st) {
         int[] arr = new int[st.size()];
         for (int i = arr.length - 1; i >= 0; i--) {
-            arr[i] = st.peek();
-            st.pop();
+            arr[i] = st.pop();
+
         }
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
