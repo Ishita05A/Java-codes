@@ -11,16 +11,16 @@ public class quest3 {
             if (ch == '(' || ch == '{' || ch == '[') {
                 st.push(ch);
             } else if (ch == ')') {
-                if (st.peek() == '(') {
+                if (!st.isEmpty() && st.peek() == '(') {
                     st.pop();
                 } else
                     return false;
-            } else if (ch == '}') {
+            } else if (!st.isEmpty() && ch == '}') {
                 if (st.peek() == '{') {
                     st.pop();
                 } else
                     return false;
-            } else if (ch == ']') {
+            } else if (!st.isEmpty() && ch == ']') {
                 if (st.peek() == '[')
                     st.pop();
                 else
