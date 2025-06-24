@@ -10,6 +10,8 @@ public class quest3Sorting {
     }
 
     static void sorting(int[] arr) {
+        if (arr.length <= 1)
+            return;
         int x = -1;
         int y = -1;
         for (int i = 1; i < arr.length; i++) {
