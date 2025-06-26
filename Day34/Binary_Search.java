@@ -9,7 +9,7 @@ public class Binary_Search {
         int end = n - 1;
         int idx = -1;
         while (st <= end) {
-            int mid = (st + end) / 2;
+            int mid = st + (end - st) / 2;
             if (arr[mid] == target) {
                 idx = mid;
                 System.out.println("Elements found at Index " + idx);
