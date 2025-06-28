@@ -18,7 +18,7 @@ public class target_in_sorted {
                 else
                     end = mid - 1;
             } else {
-                if (target <= arr[st] && target > arr[mid])
+                if (target >= arr[st] && target < arr[mid])
                     end = mid - 1;
                 else
                     st = mid + 1;
