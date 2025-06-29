@@ -31,7 +31,7 @@ public class LLquest2 {
 
         void insertAtend(int val) {
             Node temp = new Node(val);
-            if (tail == null) {
+            if (head == null) {
                 tail = temp;
                 head = temp;
             } else {
@@ -46,6 +46,7 @@ public class LLquest2 {
                 insertAtBegining(val);
             else if (idx == size) {
                 insertAtend(val);
+                return;
             }
 
             else {
@@ -63,14 +64,21 @@ public class LLquest2 {
         void deleteAt(int idx) {
             if (idx == 1) {
                 head = head.next;
-            } else {
+            }
+
+            else {
                 Node temp = head;
                 for (int i = 1; i < idx - 1; i++) {
                     temp = temp.next;
                 }
-                temp.next = temp.next.next;
-                size--;
+                if (idx == size) {
+                    tail = temp;
+                } else {
+                    temp.next = temp.next.next;
+                }
+
             }
+            size--;
         }
 
         int getAt(int idx) {
@@ -101,7 +109,7 @@ public class LLquest2 {
         ll.display();
         System.out.println(ll.getAt(3));
         System.out.println(ll.size);
-        ll.deleteAt(1);
+        ll.deleteAt(4);
         ll.display();
         sc.close();
 
