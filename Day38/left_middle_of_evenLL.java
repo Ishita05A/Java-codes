@@ -1,6 +1,6 @@
 package Day38;
 
-public class right_middle_of_evenLL {
+public class left_middle_of_evenLL {
     public static class Node {
         int data;
         Node next;
@@ -13,7 +13,7 @@ public class right_middle_of_evenLL {
     static int middle(Node head) {
         Node slow = head;
         Node fast = head;
-        while (fast != null && fast.next != null) {
+        while (fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -29,7 +29,6 @@ public class right_middle_of_evenLL {
         b.next = c;
         c.next = d;
         System.out.println(middle(a));
-
     }
 
 }
