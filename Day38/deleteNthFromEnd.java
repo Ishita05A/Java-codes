@@ -21,17 +21,22 @@ public class deleteNthFromEnd {
         System.out.println();
     }
 
-    static void delete_Nth_from_end(int n, Node head) {
+    static Node delete_Nth_from_end(int n, Node head) {
         Node slow = head;
         Node fast = head;
         for (int i = 1; i <= n; i++) {
             fast = fast.next;
         }
+        if (fast == null) {
+            head = head.next;
+            return head;
+        }
         while (fast.next != null) {
             slow = slow.next;
             fast = fast.next;
         }
-        slow.next = fast;
+        slow.next = slow.next.next;
+        return head;
     }
 
     public static void main(String[] args) {
@@ -43,8 +48,8 @@ public class deleteNthFromEnd {
         a.next = b;
         b.next = c;
         c.next = d;
-        delete_Nth_from_end(2, a);
-        display(a);
+        Node head = delete_Nth_from_end(4, a);
+        display(head);
         sc.close();
 
     }
