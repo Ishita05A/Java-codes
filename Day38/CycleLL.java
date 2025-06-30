@@ -11,12 +11,18 @@ public class CycleLL {
     }
 
     static boolean cycle_ll(Node head) {
+        if (head == null)
+            return false;
         if (head.next == null)
             return false;
         Node slow = head;
         Node fast = head;
         while (fast != null) {
+            if (fast.next == null)
+                return false;
             fast = fast.next.next;
+            if (slow.next == null)
+                return false;
             slow = slow.next;
             if (slow == fast)
                 return true;
