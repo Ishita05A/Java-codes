@@ -3,6 +3,12 @@ package Day46;
 import java.util.Scanner;
 
 public class quest2 {
+    static void display(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
     static boolean find_element(int[][] arr, int target) {
         int n = arr.length;
         int m = arr[0].length;
