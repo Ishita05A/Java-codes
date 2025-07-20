@@ -39,7 +39,5 @@ public class quest4 {
             System.out.print(ans[i] + " ");
         }
         sc.close();
-
     }
-
 }
