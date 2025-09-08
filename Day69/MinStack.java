@@ -3,17 +3,18 @@ import java.util.Stack;
 
 public class MinStack {
     public static class Minstack{
-        Stack<Integer> st = new Stack<>();
+        Stack<Long> st = new Stack<>();
         int size = 0;
         int min = Integer.MIN_VALUE;
-        void push(int val){
+        void push(int x){
+            long val = (long)x;
             if(size == 0){
                 st.push(val);
-                min = val;
+                min = (int)val;
             }
             else if(val < min){
                 st.push(val-min);
-                min = val;
+                min = (int)val;
             }
             else{
                 st.push(val);
@@ -24,7 +25,8 @@ public class MinStack {
             if(size == 0) return;
             else{
                 if(st.peek() < min){
-                    min = min-st.peek();
+                    long x = st.peek();
+                    min = min-(int)x;
                     st.pop();
                 }
                 else{
@@ -38,9 +40,13 @@ public class MinStack {
                 System.out.println("Stack is Empty");
                 return -1;
             }
-            if(st.peek() >= min) return st.peek();
+            if(st.peek() >= min) {
+                long x = st.peek();
+                return (int)x;
+            }
             else{
-                return min-st.peek();
+                long x = st.peek();
+                return min-(int)x;
             }
 
         }
