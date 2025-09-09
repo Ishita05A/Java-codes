@@ -1,4 +1,4 @@
-package Day69;
+
 
 import java.util.Arrays;
 import java.util.Scanner;
