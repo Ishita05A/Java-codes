@@ -2,40 +2,54 @@ package Day71;
 
 import java.util.Scanner;
 import java.util.Stack;
-
 public class infixStack {
-    static void infix_Stack(String str){
+    static int precedence(char c){
+        if(c == '+' || c == '-') return 1;
+        if(c == '*' || c == '/') return 2;
+        return -1;
+    }
+    static String infix_Stack(String str) {
         Stack<String> st = new Stack<>();
         Stack<Character> op = new Stack<>();
-        for(int i = 0;i<st.size();i++){
+        for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
-            int ascii = (int)ch;
-            if(ascii >=48 && ascii <= 57){
-                String s = "" + ch;
-                st.push(s);
-            }
-            else if(op.size() == 0){
-                op.push(ch);
-            }
+            if(Character.isDigit(ch)) st.push("" + ch);
+            else if(ch == '(') op.push(ch);
             else if(ch == ')'){
-                while(ch != '('){
+                while (op.peek() != '('){
+                    char o = op.pop();
                     String v2 = st.pop();
                     String v1 = st.pop();
-                    char o = op.pop();
-                    String s = o+v1+v2;
-                    st.push(s);
-
+                    st.push(o+v1+v2);
                 }
+                op.pop();
             }
-            
+            else{
+                while(!op.isEmpty() && op.peek() != '(' && precedence(ch) <= precedence(op.peek())){
+                    char o = op.pop();
+                    String v2 = st.pop();
+                    String v1 = st.pop();
+                    st.push(o+v1+v2);
+                }
+                op.push(ch);
+            }
         }
+        while(!op.isEmpty()){
+            char o = op.pop();
+            String v2 = st.pop();
+            String v1 = st.pop();
+            st.push(o+v1+v2);
+        }
+        return st.peek();
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter String");
-        // String str = sc.nextLine();
+        String str = sc.nextLine();
+        System.out.println(infix_Stack(str));
         sc.close();
 
     }
-    
+
 }
