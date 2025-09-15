@@ -12,13 +12,13 @@ public class FindInRotatedArray {
             int mid = st +(end -st)/2;
             if(arr[mid] == target) return mid;
             else if(arr[st] <=  arr[mid]){
-                if(target >= arr[st] && target <= arr[mid]){
+                if(target >= arr[st] && target < arr[mid]){
                     end = mid -1;
                 }
                 else st = mid +1;
             }
             else{
-                if(target>=arr[mid] && target <=arr[end]){
+                if(target>=arr[mid] && target <arr[end]){
                     st = mid + 1;
                 }
                 else{
