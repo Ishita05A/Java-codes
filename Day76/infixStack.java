@@ -48,7 +48,7 @@ public class infixStack {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Eter Expression");
+        System.out.println("Enter Expression");
         String str = sc.nextLine();
         System.out.println(infix(str));
         sc.close();
